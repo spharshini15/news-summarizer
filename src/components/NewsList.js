@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+
 const NewsList = () => {
   const [news, setNews] = useState([]);
   const [query, setQuery] = useState("technology");
@@ -13,7 +15,7 @@ const NewsList = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=10&apiKey=7d08f13ad5db4eda84115bcde8b63529`
+        `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=10&apiKey=${apiKey}`
       );
       setNews(response.data.articles);
     } catch (error) {
