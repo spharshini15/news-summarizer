@@ -13,7 +13,7 @@ const NewsList = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=10&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+        `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=10&apiKey=7d08f13ad5db4eda84115bcde8b63529`
       );
       setNews(response.data.articles);
     } catch (error) {
