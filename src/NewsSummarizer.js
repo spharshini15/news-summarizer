@@ -11,7 +11,7 @@ const NewsSummarizer = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=10&apiKey=pub_34ca8c35d84c47bfbef7ab21a8ed53bb`
+        `https://newsapi.org/v2/everything?q=${query}&language=en&pageSize=10&apiKey=7d08f13ad5db4eda84115bcde8b63529`
       );
 
       console.log("📰 API Response:", response.data);
