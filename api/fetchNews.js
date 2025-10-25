@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  const q = req.query.q || req.query.query || "technology";
+  const q = req.query.q || "technology";
 
   if (!process.env.NEWS_API_KEY) {
     return res.status(500).json({ error: "Server missing NEWS_API_KEY env var" });
@@ -19,10 +19,9 @@ export default async function handler(req, res) {
       timeout: 10000,
     });
 
-    return res.status(200).json(response.data);
-  } catch (err) {
-    console.error("fetchNews error:", err.response?.data || err.message);
-    const status = err.response?.status || 500;
-    return res.status(status).json({ error: "Failed to fetch news from upstream" });
+    res.status(200).json(response.data);
+  } catch (error) {
+    console.error("Error fetching news:", error.message);
+    res.status(500).json({ error: "Failed to fetch news" });
   }
 }
